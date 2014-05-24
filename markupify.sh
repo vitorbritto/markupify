@@ -42,42 +42,36 @@ markupify() {
     # List Classes
     if [[ "${1}" == "-c" || "${1}" == "--class" ]]; then
         mify_class ${1} ${2}
-    else
-        echo "Sorry, any valid parameter."
+        exit
     fi
 
     # List IDs
     if [[ "${1}" == "-i" || "${1}" == "--id" ]]; then
         mify_id ${1} ${2}
-    else
-        echo "Sorry, any valid parameter."
+        exit
     fi
 
     # List href URL
     if [[ "${1}" == "-u" || "${1}" == "--url" ]]; then
         mify_href ${1} ${2}
-    else
-        echo "Sorry, any valid parameter."
+        exit
     fi
 
 }
 
 mify_class() {
     echo "→ Extracting"
-    cat ${2} | grep -o class= | cut -d \" -f2
-    exit
+    cat ${2} | grep class= | cut -d \" -f2
 }
 
 mify_id() {
     echo "→ Extracting"
     cat ${2} | grep id= | cut -d \" -f2
-    exit
 }
 
 mify_href() {
     echo "→ Extracting"
     cat ${2} | grep -o '<a .*href=.*>' | sed -e 's/<a /\<a /g' | sed -e 's/<a .*href=['"'"'"]//' -e 's/["'"'"'].*$//' -e '/^$/ d'
-    exit
 }
 
 # Extract classes or IDs from file or URL
