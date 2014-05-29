@@ -23,7 +23,7 @@ $ chmod u+x path/to/markupify.sh
 
 ## Usage
 
-    ./markupify.sh [ options ] <LOCAL_FILE, FILE_URL>
+    $ ./markupify.sh [ options ] <LOCAL_FILE, FILE_URL>
 
 
 ### Options:
@@ -40,7 +40,7 @@ If you prefer, put the following **alias** inside your `~./.bashrc` file:
 
 Now, you can simply run:
 
-    mify [ options ] <LOCAL_FILE, FILE_URL>
+    $ mify [ options ] <LOCAL_FILE, FILE_URL>
 
 
 ## License
